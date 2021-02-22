@@ -23,7 +23,7 @@ export default handler => {
 		handler(opts);
 	};
 
-	let prog = sade('macos-jxa-bundler');
+	let prog = sade('jxabundler');
 
 	prog
 		.version(version)
