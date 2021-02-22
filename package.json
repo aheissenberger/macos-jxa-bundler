@@ -1,0 +1,13 @@
+{
+  "name": "macos-jxa-bundler",
+  "version": "0.0.0",
+  "license": "bsd-2-clause",
+  "workspaces": [
+    "packages/*"
+  ],
+  "private": true,
+  "devDependencies": {
+    "lerna": "^3.22.1",
+    "microbundle": "^0.13.0"
+  }
+}
