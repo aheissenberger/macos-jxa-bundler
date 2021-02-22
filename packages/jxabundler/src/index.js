@@ -8,7 +8,7 @@ import glob from 'tiny-glob/sync';
 // import autoprefixer from 'autoprefixer';
 import { rollup, watch } from 'rollup';
 // import builtinModules from 'builtin-modules';
-// import resolveFrom from 'resolve-from';
+import resolveFrom from 'resolve-from';
 import commonjs from '@rollup/plugin-commonjs';
 import babel from '@rollup/plugin-babel';
 //import customBabel from './lib/babel-custom';
@@ -16,7 +16,7 @@ import nodeResolve from '@rollup/plugin-node-resolve';
 import { terser } from 'rollup-plugin-terser';
 import alias from '@rollup/plugin-alias';
 // import postcss from 'rollup-plugin-postcss';
-// import typescript from 'rollup-plugin-typescript2';
+import typescript from 'rollup-plugin-typescript2';
 import json from '@rollup/plugin-json';
 import logError from './log-error';
 import { isDir, isFile, stdout, isTruthy, removeScope } from './utils';
@@ -208,6 +208,21 @@ function doWatch(options, cwd, steps) {
 	});
 }
 
+function getDeclarationDir({ options, pkg }) {
+	const { cwd, output } = options;
+
+	let result = output;
+
+	if (pkg.types || pkg.typings) {
+		result = pkg.types || pkg.typings;
+		result = resolve(cwd, result);
+	}
+
+	result = dirname(result);
+
+	return result;
+}
+
 async function getEntries({ input, cwd }) {
 	let entries = (
 		await map([].concat(input), async file => {
@@ -279,6 +294,9 @@ function createConfig(options, entry, format, writeMeta) {
 		typeof rawMinifyValue === 'string'
 			? () => resolve(options.cwd, rawMinifyValue)
 			: () => resolve(options.cwd, 'mangle.json');
+
+	const useTypescript = extname(entry) === '.ts' || extname(entry) === '.tsx';
+	const emitDeclaration = !!(options.generateTypes || pkg.types || pkg.typings);
 
 	const escapeStringExternals = ext =>
 		ext instanceof RegExp ? ext.source : escapeStringRegexp(ext);
@@ -382,6 +400,39 @@ function createConfig(options, entry, format, writeMeta) {
 							map: null,
 						}),
 					},
+					(useTypescript || emitDeclaration) &&
+					typescript({
+						typescript: require(resolveFrom.silent(
+							options.cwd,
+							'typescript',
+						) || 'typescript'),
+						cacheRoot: `./node_modules/.cache/.rts2_cache_${format}`,
+						useTsconfigDeclarationDir: true,
+						tsconfigDefaults: {
+							compilerOptions: {
+								sourceMap: options.sourcemap,
+								declaration: true,
+								allowJs: true,
+								emitDeclarationOnly: options.generateTypes && !useTypescript,
+								declarationDir: getDeclarationDir({ options, pkg }),
+								jsx: 'preserve',
+								jsxFactory:
+									// TypeScript fails to resolve Fragments when jsxFactory
+									// is set, even when it's the same as the default value.
+									options.jsx === 'React.createElement'
+										? undefined
+										: options.jsx || 'h',
+							},
+							files: options.entries,
+						},
+						tsconfig: options.tsconfig,
+						tsconfigOverride: {
+							compilerOptions: {
+								module: 'ESNext',
+								target: 'esnext',
+							},
+						},
+					}),
 					// if defines is not set, we shouldn't run babel through node_modules
 					isTruthy(defines) &&
 					babel({
@@ -462,20 +513,24 @@ function createConfig(options, entry, format, writeMeta) {
 						// Only ESM environments necessitate globalThis, and UMD bundles can't be properly loaded as ESM.
 						// So we remove the globalThis check, replacing it with `this||self` to match Rollup 1's output:
 						renderChunk(code, chunk, opts) {
-							if (opts.format === 'cjs') {
-									// remove "exports.run=" from "exports.run=function run(n)"
-									code = code.replace(
-										/,*\s*exports\.(run|openDocuments)\s*=\s*function\s*(run|openDocuments)\s*\({0,1}/g,
-										'function $2(',
-									);
-									// remove "exports.run=run"
-									code = code.replace(
-										/exports\.(run|openDocuments)\s*=\s*(run|openDocuments)\s*[;]{0,1}/g,
-										'',
-									);
-								
+							
+								// remove "exports.run=" from "exports.run=function run(n)"
+								code = code.replace(
+									/,*\s*exports\.(run|openDocuments)\s*=\s*function\s*(run|openDocuments)\s*\({0,1}/g,
+									'function $2(',
+								);
+								// remove "exports.run=run"
+								code = code.replace(
+									/exports\.(run|openDocuments)\s*=\s*(run|openDocuments)\s*[;]{0,1}/g,
+									'',
+								);
+
+								if (options.type === 'cmd') {
+									code = "#!/usr/bin/env osascript -l JavaScript\n"+code
+								}
+
 								return { code, map: null };
-							}
+							
 							/*
 							if (opts.format === 'umd') {
 								// minified:
@@ -503,7 +558,7 @@ function createConfig(options, entry, format, writeMeta) {
 							).then(results => results.filter(Boolean).join('\n'));
 						},
 					}),
-					options.type==='app' && osacompile({
+					options.type === 'app' && osacompile({
 						//appName: options.name,
 						cwd: outputDir,
 					})
@@ -528,7 +583,7 @@ function createConfig(options, entry, format, writeMeta) {
 			dir: outputDir,
 			entryFileNames: outputEntryFileName,
 			exports: 'auto',
-			banner: (options.type === 'cmd' ? '#!/usr/bin/env osascript -l JavaScript' : null)
+			//banner: (options.type === 'cmd' ? "#!/usr/bin/env osascript -l JavaScript" : null)
 		},
 	};
 

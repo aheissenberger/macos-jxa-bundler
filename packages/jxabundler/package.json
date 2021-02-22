@@ -5,7 +5,7 @@
   "source": "src/index.js",
   "bin": "dist/cli.js",
   "license": "bsd-2-clause",
-  "description": "MacOS Javascript JavaScript for Automation (JXA) bundler. Creates MacOS Apps, Commandline Scripts. Allows to use libaries from NPM.",
+  "description": "MacOS Javascript for Automation (JXA) bundler. Creates MacOS Apps, Commandline Scripts. Allows to use libaries from NPM.",
   "keywords": [
     "osx",
     "macos",
@@ -15,11 +15,17 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/aheissenberger/macos-jxa-bundler/jxabundler"
+    "url": "https://github.com/aheissenberger/macos-jxa-bundler.git",
+    "directory": "packages/jxabundler"
   },
   "author": "Andreas Heissenberger <andreas@heissenberger.at>",
   "homepage": "https://github.com/aheissenberger/macos-jxa-bundler/jxabundler",
-  "url": "https://github.com/aheissenberger/macos-jxa-bundler/issues",
+  "bugs": {
+  "url": "https://github.com/aheissenberger/macos-jxa-bundler/issues"
+  },
+  "engines": {
+    "node": ">=10"
+  },
   "dependencies": {
     "@babel/core": "^7.12.17",
     "@rollup/plugin-babel": "^5.3.0",
@@ -33,7 +39,9 @@
     "rollup": "^2.39.0",
     "rollup-plugin-terser": "^7.0.2",
     "sade": "^1.7.4",
-    "tiny-glob": "^0.2.8"
+    "tiny-glob": "^0.2.8",
+    "tslib": "^2.1.0",
+    "typescript": "^4.1.5"
   },
   "scripts": {
     "build": "microbundle --format cjs --target node src/cli.js",

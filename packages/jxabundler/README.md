@@ -143,6 +143,9 @@ Use this space to show useful examples of how a project can be used. Additional 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
 <!-- ROADMAP -->
+### Typescript
+
+You can use typescript without any configuration. But you will have to deal with global functions (e.g. `Ref()`) which can be uses without beeing imported.
 
 ## Roadmap
 

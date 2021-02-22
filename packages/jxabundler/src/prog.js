@@ -44,10 +44,10 @@ export default handler => {
 		// .option('--external', `Specify external dependencies, or 'none'`)
 		// .option('--globals', `Specify globals dependencies, or 'none'`)
 		// .example('microbundle --globals react=React,jquery=$')
-		// .option('--define', 'Replace constants with hard-coded values')
-		// .example('microbundle --define API_KEY=1234')
+		.option('--define', 'Replace constants with hard-coded values')
+		.example('jxabundler --define API_KEY=1234')
 		.option('--alias', `Map imports to different modules`)
-		// .example('microbundle --alias react=preact')
+		.example('jxabundler --alias react=preact')
 		.option('--compress', 'Compress output using Terser', null)
 		.option('--strict', 'Enforce undefined global context and add "use strict"')
 		// .option('--name', 'Specify name exposed in UMD builds')
@@ -65,7 +65,7 @@ export default handler => {
 		// 	'--jsx',
 		// 	'A custom JSX pragma like React.createElement (default: h)',
 		// )
-		// .option('--tsconfig', 'Specify the path to a custom tsconfig.json')
+		.option('--tsconfig', 'Specify the path to a custom tsconfig.json')
 		// .example('microbundle build --tsconfig tsconfig.build.json');
 
 	prog
