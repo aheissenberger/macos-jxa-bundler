@@ -1,0 +1,25 @@
+{
+  "name": "create-jxa-app",
+  "version": "0.0.0",
+  "main": "dist/cli.js",
+  "source": "src/index.js",
+  "license": "bsd-2-clause",
+  "description": "Create MacOS Javascript for Automation (JXA) Apps with no build configuration.",
+  "keywords": [
+    "osx",
+    "macos",
+    "osascript",
+    "jxa",
+    "javascript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aheissenberger/macos-jxa-bundler/create-jxa-app"
+  },
+  "author": "Andreas Heissenberger <andreas@heissenberger.at>",
+  "homepage": "https://github.com/aheissenberger/macos-jxa-bundler/create-jxa-app",
+  "url": "https://github.com/aheissenberger/macos-jxa-bundler/issues",
+  "devDependencies": {
+    "microbundle": "^0.13.0"
+  }
+}
