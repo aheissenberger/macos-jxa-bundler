@@ -13,8 +13,13 @@
     "jxa",
     "javascript"
   ],
-  "repository": "aheissenberger/macos-jxa-bundler/jxabundler",
-  "author": "<Andreas Heissenberger> andreas@heissenberger.at",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aheissenberger/macos-jxa-bundler/jxabundler"
+  },
+  "author": "Andreas Heissenberger <andreas@heissenberger.at>",
+  "homepage": "https://github.com/aheissenberger/macos-jxa-bundler/jxabundler",
+  "url": "https://github.com/aheissenberger/macos-jxa-bundler/issues",
   "dependencies": {
     "@babel/core": "^7.12.17",
     "@rollup/plugin-babel": "^5.3.0",
@@ -32,7 +37,8 @@
   },
   "scripts": {
     "build": "microbundle --format cjs --target node src/cli.js",
-    "dev": "microbundle watch --format cjs --target node src/cli.js"
+    "dev": "microbundle watch --format cjs --target node src/cli.js",
+    "prepublishOnly": "microbundle --format cjs --target node src/cli.js"
   },
   "devDependencies": {
     "microbundle": "^0.13.0"
