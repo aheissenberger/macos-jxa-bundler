@@ -248,7 +248,7 @@ function shouldUseYarn() {
             packageVersion = templatesVersionMinimum;
           }
   
-          // Only support templates when used alongside new react-scripts versions.
+          // Only support templates when used alongside new cjxa-scripts versions.
           const supportsTemplates = semver.gte(
             packageVersion,
             templatesVersionMinimum
@@ -259,7 +259,7 @@ function shouldUseYarn() {
             console.log('');
             console.log(
               `The ${kleur.cyan(packageInfo.name)} version you're using ${
-                packageInfo.name === 'react-scripts' ? 'is not' : 'may not be'
+                packageInfo.name === 'cjxa-scripts' ? 'is not' : 'may not be'
               } compatible with the ${kleur.cyan('--template')} option.`
             );
             console.log('');
@@ -307,14 +307,14 @@ function shouldUseYarn() {
         `
           );
   
-          if (version === 'react-scripts@0.9.x') {
-            console.log(
-              kleur.yellow(
-                `\nNote: the project was bootstrapped with an old unsupported version of tools.\n` +
-                  `Please update to Node >=10 and npm >=6 to get supported tools in new projects.\n`
-              )
-            );
-          }
+          // if (version === 'cjxa-scripts@0.9.x') {
+          //   console.log(
+          //     kleur.yellow(
+          //       `\nNote: the project was bootstrapped with an old unsupported version of tools.\n` +
+          //         `Please update to Node >=10 and npm >=6 to get supported tools in new projects.\n`
+          //     )
+          //   );
+          // }
         })
         .catch(reason => {
           console.log();
@@ -382,14 +382,14 @@ function shouldUseYarn() {
     }
   
     const scriptsToWarn = [
-      {
-        name: 'react-scripts-ts',
-        message: kleur.yellow(
-          `The react-scripts-ts package is deprecated. TypeScript is now supported natively in Create React App. You can use the ${kleur.green(
-            '--template typescript'
-          )} option instead when generating your app to include TypeScript support. Would you like to continue using react-scripts-ts?`
-        ),
-      },
+      // {
+      //   name: 'cjxa-scripts-ts',
+      //   message: kleur.yellow(
+      //     `The cjxa-scripts-ts package is deprecated. TypeScript is now supported natively in Create React App. You can use the ${kleur.green(
+      //       '--template typescript'
+      //     )} option instead when generating your app to include TypeScript support. Would you like to continue using cjxa-scripts-ts?`
+      //   ),
+      // },
     ];
   
     for (const script of scriptsToWarn) {
@@ -519,7 +519,7 @@ function shouldUseYarn() {
           return { name, version };
         })
         .catch(err => {
-          // The package name could be with or without semver version, e.g. react-scripts-0.2.0-alpha.1.tgz
+          // The package name could be with or without semver version, e.g. cjxa-scripts-0.2.0-alpha.1.tgz
           // However, this function returns package name only without semver version.
           console.log(
             `Could not extract the package name from the archive: ${err.message}`
@@ -536,8 +536,8 @@ function shouldUseYarn() {
         });
     } else if (installPackage.startsWith('git+')) {
       // Pull package name out of git urls e.g:
-      // git+https://github.com/mycompany/react-scripts.git
-      // git+ssh://github.com/mycompany/react-scripts.git#v1.2.3
+      // git+https://github.com/mycompany/cjxa-scripts.git
+      // git+ssh://github.com/mycompany/cjxa-scripts.git#v1.2.3
       return Promise.resolve({
         name: installPackage.match(/([^/]+)\.git(#.*)?$/)[1],
       });
@@ -657,7 +657,7 @@ function shouldUseYarn() {
     }
   
     // TODO: there should be a single place that holds the dependencies
-    const dependencies = ['react', 'react-dom', 'react-scripts'].sort();
+    const dependencies = ['react', 'react-dom', 'cjxa-scripts'].sort();
     if (dependencies.includes(appName)) {
       console.error(
         kleur.red(
