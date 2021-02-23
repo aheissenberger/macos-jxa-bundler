@@ -10,8 +10,9 @@ function chooseFiles() {
 }
 
 function getFilename(path) {
-  return path.toString().split("/")?.[0]??'';
-}
+    const parts = path.toString().split("/");
+    return parts?.[parts.length-1]??'';
+  }
 
 // run on App start
 export function run(argv) {

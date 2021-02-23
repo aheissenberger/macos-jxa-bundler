@@ -151,7 +151,7 @@ This will create a project folder `my-project`, jxabundler and an example app.
 
 The default template is for `MacOS Apps`. If you plan to develop `Command Line Scripts` you can use `npx create-jxa-app my-project --template command`
 
-Learn more [Create JXA App](https://github.com/aheissenberger/macos-jxa-bundler/tree/main/packages/create-jxa-app)
+Learn more [Create JXA App](https://github.com/aheissenberger/macos-jxa-bundler/packages/create-jxa-app)
 
 ## 💽 Output Formats <a name="formats"></a>
 

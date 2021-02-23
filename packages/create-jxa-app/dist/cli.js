@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 var sade = require('sade');
 var require$$5 = require('child_process');
 var validateProjectName = require('validate-npm-package-name');
@@ -43,7 +42,7 @@ var tmp__default = /*#__PURE__*/_interopDefaultLegacy(tmp);
 var url__default = /*#__PURE__*/_interopDefaultLegacy(url);
 
 var name = "create-jxa-app";
-var version = "0.0.11";
+var version = "0.0.12";
 
 var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
