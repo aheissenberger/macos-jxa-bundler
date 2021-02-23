@@ -368,13 +368,13 @@ module.exports = function (
   console.log(`Success! Created ${appName} at ${appPath}`);
   console.log('Inside that directory, you can run several commands:');
   console.log();
-  console.log(chalk.cyan(`  ${displayedCommand} start`));
-  console.log('    Starts the development server.');
+  console.log(chalk.cyan(`  ${displayedCommand} dev`));
+  console.log('    Starts the development mode.');
   console.log();
   console.log(
     chalk.cyan(`  ${displayedCommand} ${useYarn ? '' : 'run '}build`)
   );
-  console.log('    Bundles the app into static files for production.');
+  console.log('    Bundles the app into an MacOS App or Command Line Command.');
   console.log();
   console.log(chalk.cyan(`  ${displayedCommand} test`));
   console.log('    Starts the test runner.');
