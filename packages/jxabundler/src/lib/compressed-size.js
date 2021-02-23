@@ -1,7 +1,7 @@
 import { basename } from 'path';
 import { green, red, yellow, white } from 'kleur';
-import gzipSize from 'gzip-size';
-import brotliSize from 'brotli-size';
+// import gzipSize from 'gzip-size';
+// import brotliSize from 'brotli-size';
 import prettyBytes from 'pretty-bytes';
 
 function getPadLeft(str, width, char = ' ') {

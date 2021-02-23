@@ -43,5 +43,6 @@
     "build": "microbundle -i src/index.js -o dist/cli.js -f cjs --target node",
     "dev": "microbundle watch -i src/index.js -o dist/cli.js -f cjs --target node",
     "prepublishOnly": "yarn microbundle -i src/index.js -o dist/cli.js -f cjs --target node --compress --no-sourcemap"
-  }
+  },
+  "gitHead": "2655c91460353e64880f08f84d3bd31efbfd4e2d"
 }

@@ -17,5 +17,6 @@
   "url": "https://github.com/aheissenberger/macos-jxa-bundler/issues",
   "engines": {
     "node": ">=10"
-  }
+  },
+  "gitHead": "2655c91460353e64880f08f84d3bd31efbfd4e2d"
 }

@@ -1,0 +1,195 @@
+0 silly argv {
+0 silly argv   _: [ 'publish' ],
+0 silly argv   composed: 'publish',
+0 silly argv   lernaVersion: '3.22.1',
+0 silly argv   '$0': '/Users/ah/SVN-Checkouts/DEV/macos-jxa-bundler/node_modules/.bin/lerna'
+0 silly argv }
+1 notice cli v3.22.1
+2 verbose rootPath /Users/ah/SVN-Checkouts/DEV/macos-jxa-bundler
+3 info versioning independent
+4 verbose session ed8edbf29c61b798
+5 verbose user-agent lerna/3.22.1/node@v15.9.0+x64 (darwin)
+6 warn Yarn's registry proxy is broken, replacing with public npm registry
+7 warn If you don't have an npm token, you should exit and run `npm login`
+8 silly argv { _: [ 'publish' ], composed: 'publish', lernaVersion: '3.22.1' }
+9 verbose rootPath /Users/ah/SVN-Checkouts/DEV/macos-jxa-bundler
+10 silly isAnythingCommitted
+11 verbose isAnythingCommitted 1
+12 silly currentBranch
+13 verbose currentBranch main
+14 silly remoteBranchExists
+15 silly isBehindUpstream
+16 silly isBehindUpstream main is behind origin/main by 0 commit(s) and ahead by 0
+17 silly hasTags
+18 verbose hasTags true
+19 silly git-describe.sync "jxabundler@1.0.2-alpha.0-3-g0bc5af9" => {"lastTagName":"jxabundler@1.0.2-alpha.0","lastVersion":"1.0.2-alpha.0","refCount":"3","sha":"0bc5af9","isDirty":false}
+20 info Looking for changed packages since jxabundler@1.0.2-alpha.0
+21 silly checking diff packages/cjxa-scripts
+22 silly found diff in packages/cjxa-scripts/README.md
+22 silly found diff in packages/cjxa-scripts/dist/scripts.js
+22 silly found diff in packages/cjxa-scripts/package.json
+22 silly found diff in packages/cjxa-scripts/src/index.js
+23 verbose filtered diff [
+23 verbose filtered diff   'packages/cjxa-scripts/README.md',
+23 verbose filtered diff   'packages/cjxa-scripts/dist/scripts.js',
+23 verbose filtered diff   'packages/cjxa-scripts/package.json',
+23 verbose filtered diff   'packages/cjxa-scripts/src/index.js'
+23 verbose filtered diff ]
+24 silly checking diff packages/cjxa-template
+25 silly found diff in packages/cjxa-template/.gitignore
+25 silly found diff in packages/cjxa-template/README.md
+25 silly found diff in packages/cjxa-template/package.json
+25 silly found diff in packages/cjxa-template/src/index.js
+25 silly found diff in packages/cjxa-template/template.json
+25 silly found diff in packages/cjxa-template/template/README.md
+26 verbose filtered diff [
+26 verbose filtered diff   'packages/cjxa-template/.gitignore',
+26 verbose filtered diff   'packages/cjxa-template/README.md',
+26 verbose filtered diff   'packages/cjxa-template/package.json',
+26 verbose filtered diff   'packages/cjxa-template/src/index.js',
+26 verbose filtered diff   'packages/cjxa-template/template.json',
+26 verbose filtered diff   'packages/cjxa-template/template/README.md'
+26 verbose filtered diff ]
+27 silly checking diff packages/create-jxa-app
+28 silly found diff in packages/create-jxa-app/.npmignore
+28 silly found diff in packages/create-jxa-app/dist/cli.js
+28 silly found diff in packages/create-jxa-app/dist/cli.js.map
+28 silly found diff in packages/create-jxa-app/package.json
+28 silly found diff in packages/create-jxa-app/src/createJxaApp.js
+28 silly found diff in packages/create-jxa-app/src/index.js
+28 silly found diff in packages/create-jxa-app/tmp-project/package-lock.json
+28 silly found diff in packages/create-jxa-app/tmp-project/package.json
+29 verbose filtered diff [
+29 verbose filtered diff   'packages/create-jxa-app/.npmignore',
+29 verbose filtered diff   'packages/create-jxa-app/dist/cli.js',
+29 verbose filtered diff   'packages/create-jxa-app/dist/cli.js.map',
+29 verbose filtered diff   'packages/create-jxa-app/package.json',
+29 verbose filtered diff   'packages/create-jxa-app/src/createJxaApp.js',
+29 verbose filtered diff   'packages/create-jxa-app/src/index.js',
+29 verbose filtered diff   'packages/create-jxa-app/tmp-project/package-lock.json',
+29 verbose filtered diff   'packages/create-jxa-app/tmp-project/package.json'
+29 verbose filtered diff ]
+30 silly checking diff packages/jxabundler
+31 silly found diff in packages/jxabundler/README.md
+31 silly found diff in packages/jxabundler/package.json
+31 silly found diff in packages/jxabundler/src/index.js
+31 silly found diff in packages/jxabundler/src/prog.js
+31 silly found diff in packages/jxabundler/tests/fixtures/app.ts
+32 verbose filtered diff [
+32 verbose filtered diff   'packages/jxabundler/README.md',
+32 verbose filtered diff   'packages/jxabundler/package.json',
+32 verbose filtered diff   'packages/jxabundler/src/index.js',
+32 verbose filtered diff   'packages/jxabundler/src/prog.js',
+32 verbose filtered diff   'packages/jxabundler/tests/fixtures/app.ts'
+32 verbose filtered diff ]
+33 verbose updated cjxa-scripts
+34 verbose updated cjxa-template
+35 verbose updated create-jxa-app
+36 verbose updated jxabundler
+37 verbose git-describe undefined => "jxabundler@1.0.2-alpha.0-3-g0bc5af9"
+38 silly git-describe parsed => {"lastTagName":"jxabundler@1.0.2-alpha.0","lastVersion":"1.0.2-alpha.0","refCount":"3","sha":"0bc5af9","isDirty":false}
+39 info execute Skipping releases
+40 silly lifecycle No script for "preversion" in "macos-jxa-bundler", continuing
+41 silly lifecycle No script for "preversion" in "cjxa-scripts", continuing
+42 silly lifecycle No script for "preversion" in "cjxa-template", continuing
+43 silly lifecycle No script for "preversion" in "create-jxa-app", continuing
+44 silly lifecycle No script for "preversion" in "jxabundler", continuing
+45 silly lifecycle No script for "version" in "cjxa-template", continuing
+46 silly lifecycle No script for "version" in "create-jxa-app", continuing
+47 silly lifecycle No script for "version" in "jxabundler", continuing
+48 silly lifecycle No script for "version" in "cjxa-scripts", continuing
+49 silly lifecycle No script for "version" in "macos-jxa-bundler", continuing
+50 silly gitAdd [
+50 silly gitAdd   'packages/cjxa-template/package.json',
+50 silly gitAdd   'packages/create-jxa-app/package.json',
+50 silly gitAdd   'packages/jxabundler/package.json',
+50 silly gitAdd   'packages/cjxa-scripts/package.json'
+50 silly gitAdd ]
+51 silly gitCommit Publish
+51 silly gitCommit
+51 silly gitCommit  - cjxa-scripts@0.0.1
+51 silly gitCommit  - cjxa-template@0.0.1
+51 silly gitCommit  - create-jxa-app@0.0.1
+51 silly gitCommit  - jxabundler@1.0.3-alpha.0
+52 verbose git [
+52 verbose git   'commit',
+52 verbose git   '-F',
+52 verbose git   '/private/var/folders/zw/phkcp7vx7d1697zkc8xwh69w0000gn/T/93bf81a0-2a24-4f80-a7b8-2b3d9237442c/lerna-commit.txt'
+52 verbose git ]
+53 silly gitTag cjxa-scripts@0.0.1
+54 verbose git [ 'tag', 'cjxa-scripts@0.0.1', '-m', 'cjxa-scripts@0.0.1' ]
+55 silly gitTag cjxa-template@0.0.1
+56 verbose git [ 'tag', 'cjxa-template@0.0.1', '-m', 'cjxa-template@0.0.1' ]
+57 silly gitTag create-jxa-app@0.0.1
+58 verbose git [ 'tag', 'create-jxa-app@0.0.1', '-m', 'create-jxa-app@0.0.1' ]
+59 silly gitTag jxabundler@1.0.3-alpha.0
+60 verbose git [ 'tag', 'jxabundler@1.0.3-alpha.0', '-m', 'jxabundler@1.0.3-alpha.0' ]
+61 silly lifecycle No script for "postversion" in "cjxa-scripts", continuing
+62 silly lifecycle No script for "postversion" in "cjxa-template", continuing
+63 silly lifecycle No script for "postversion" in "create-jxa-app", continuing
+64 silly lifecycle No script for "postversion" in "jxabundler", continuing
+65 silly lifecycle No script for "postversion" in "macos-jxa-bundler", continuing
+66 info git Pushing tags...
+67 silly gitPush origin main
+68 info publish Publishing packages to npm...
+69 info Verifying npm credentials
+70 verbose Retrieving npm user profile
+71 http fetch GET 200 https://registry.npmjs.org/-/npm/v1/user 1526ms
+72 silly npm profile get received {"tfa":false,"name":"aheissenberger","email":"andreas@heissenberger.at","email_verified":true,"created":"2015-02-26T01:25:14.718Z","updated":"2021-02-04T21:09:26.242Z","cidr_whitelist":null,"fullname":"","homepage":"","freenode":"","twitter":"","github":""}
+73 silly get npm username received {"username":"aheissenberger","tfa":false,"name":"aheissenberger","email":"andreas@heissenberger.at","email_verified":true,"created":"2015-02-26T01:25:14.718Z","updated":"2021-02-04T21:09:26.242Z","cidr_whitelist":null,"fullname":"","homepage":"","freenode":"","twitter":"","github":""}
+74 silly verifyNpmPackageAccess
+75 http fetch GET 200 https://registry.npmjs.org/-/org/aheissenberger/package?format=cli 768ms
+76 info Checking two-factor auth mode
+77 verbose Retrieving npm user profile
+78 http fetch GET 200 https://registry.npmjs.org/-/npm/v1/user 754ms
+79 silly npm profile get received {"tfa":false,"name":"aheissenberger","email":"andreas@heissenberger.at","email_verified":true,"created":"2015-02-26T01:25:14.718Z","updated":"2021-02-04T21:09:26.242Z","cidr_whitelist":null,"fullname":"","homepage":"","freenode":"","twitter":"","github":""}
+80 silly 2FA false
+81 warn ENOLICENSE Packages cjxa-scripts, cjxa-template, and create-jxa-app are missing a license.
+81 warn ENOLICENSE One way to fix this is to add a LICENSE.md file to the root of this repository.
+81 warn ENOLICENSE See https://choosealicense.com for additional guidance.
+82 silly getCurrentSHA
+83 verbose getCurrentSHA 2655c91460353e64880f08f84d3bd31efbfd4e2d
+84 silly lifecycle No script for "prepublish" in "macos-jxa-bundler", continuing
+85 silly lifecycle No script for "prepare" in "macos-jxa-bundler", continuing
+86 silly lifecycle No script for "prepublishOnly" in "macos-jxa-bundler", continuing
+87 silly lifecycle No script for "prepack" in "macos-jxa-bundler", continuing
+88 verbose pack-directory packages/cjxa-scripts
+89 verbose pack-directory packages/cjxa-template
+90 verbose pack-directory packages/create-jxa-app
+91 verbose pack-directory packages/jxabundler
+92 silly lifecycle No script for "prepublish" in "cjxa-scripts", continuing
+93 silly lifecycle No script for "prepublish" in "cjxa-template", continuing
+94 silly lifecycle No script for "prepublish" in "create-jxa-app", continuing
+95 silly lifecycle No script for "prepublish" in "jxabundler", continuing
+96 silly lifecycle No script for "prepare" in "cjxa-scripts", continuing
+97 silly lifecycle No script for "prepare" in "cjxa-template", continuing
+98 silly lifecycle No script for "prepare" in "create-jxa-app", continuing
+99 silly lifecycle No script for "prepare" in "jxabundler", continuing
+100 silly lifecycle No script for "prepublishOnly" in "cjxa-scripts", continuing
+101 silly lifecycle No script for "prepublishOnly" in "cjxa-template", continuing
+102 silly lifecycle "prepublishOnly" starting in "create-jxa-app"
+103 info lifecycle create-jxa-app@0.0.1~prepublishOnly: create-jxa-app@0.0.1
+104 silly lifecycle "prepublishOnly" starting in "jxabundler"
+105 info lifecycle jxabundler@1.0.3-alpha.0~prepublishOnly: jxabundler@1.0.3-alpha.0
+106 warn lifecycle The node binary used for scripts is /var/folders/zw/phkcp7vx7d1697zkc8xwh69w0000gn/T/yarn--1614064053642-0.18916681066439867/node but npm is using /usr/local/Cellar/node/15.9.0/bin/node itself. Use the `--scripts-prepend-node-path` option to include the path for the node binary npm was executed with.
+107 verbose lifecycle create-jxa-app@0.0.1~prepublishOnly: unsafe-perm in lifecycle true
+108 verbose lifecycle create-jxa-app@0.0.1~prepublishOnly: PATH: /Users/ah/SVN-Checkouts/DEV/macos-jxa-bundler/node_modules/npm-lifecycle/node-gyp-bin:/Users/ah/SVN-Checkouts/DEV/macos-jxa-bundler/packages/create-jxa-app/node_modules/.bin:/var/folders/zw/phkcp7vx7d1697zkc8xwh69w0000gn/T/yarn--1614064053642-0.18916681066439867:/Users/ah/SVN-Checkouts/DEV/macos-jxa-bundler/node_modules/.bin:/Users/ah/.config/yarn/link/node_modules/.bin:/Users/ah/SVN-Checkouts/DEV/macos-jxa-bundler/node_modules/.bin:/usr/local/Cellar/node/15.9.0/libexec/lib/node_modules/npm/bin/node-gyp-bin:/usr/local/Cellar/node/15.9.0/lib/node_modules/npm/bin/node-gyp-bin:/usr/local/Cellar/node/15.9.0/bin/node_modules/npm/bin/node-gyp-bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+109 verbose lifecycle create-jxa-app@0.0.1~prepublishOnly: CWD: /Users/ah/SVN-Checkouts/DEV/macos-jxa-bundler/packages/create-jxa-app
+110 silly lifecycle create-jxa-app@0.0.1~prepublishOnly: Args: [
+110 silly lifecycle   '-c',
+110 silly lifecycle   'yarn microbundle -i src/index.js -o dist/cli.js -f cjs --target node --compress --no-sourcemap'
+110 silly lifecycle ]
+111 silly lifecycle No script for "prepack" in "cjxa-scripts", continuing
+112 silly lifecycle No script for "prepack" in "cjxa-template", continuing
+113 silly lifecycle No script for "postpack" in "cjxa-scripts", continuing
+114 verbose packed packages/cjxa-scripts
+115 silly lifecycle No script for "postpack" in "cjxa-template", continuing
+116 verbose packed packages/cjxa-template
+117 silly lifecycle create-jxa-app@0.0.1~prepublishOnly: Returned: code: 0  signal: null
+118 verbose lifecycle jxabundler@1.0.3-alpha.0~prepublishOnly: unsafe-perm in lifecycle true
+119 verbose lifecycle jxabundler@1.0.3-alpha.0~prepublishOnly: PATH: /Users/ah/SVN-Checkouts/DEV/macos-jxa-bundler/node_modules/npm-lifecycle/node-gyp-bin:/Users/ah/SVN-Checkouts/DEV/macos-jxa-bundler/packages/jxabundler/node_modules/.bin:/var/folders/zw/phkcp7vx7d1697zkc8xwh69w0000gn/T/yarn--1614064053642-0.18916681066439867:/Users/ah/SVN-Checkouts/DEV/macos-jxa-bundler/node_modules/.bin:/Users/ah/.config/yarn/link/node_modules/.bin:/Users/ah/SVN-Checkouts/DEV/macos-jxa-bundler/node_modules/.bin:/usr/local/Cellar/node/15.9.0/libexec/lib/node_modules/npm/bin/node-gyp-bin:/usr/local/Cellar/node/15.9.0/lib/node_modules/npm/bin/node-gyp-bin:/usr/local/Cellar/node/15.9.0/bin/node_modules/npm/bin/node-gyp-bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+120 verbose lifecycle jxabundler@1.0.3-alpha.0~prepublishOnly: CWD: /Users/ah/SVN-Checkouts/DEV/macos-jxa-bundler/packages/jxabundler
+121 silly lifecycle jxabundler@1.0.3-alpha.0~prepublishOnly: Args: [ '-c', 'microbundle --format cjs --target node src/cli.js' ]
+122 silly lifecycle "prepublishOnly" finished in "create-jxa-app"
+123 silly lifecycle No script for "prepack" in "create-jxa-app", continuing
+124 error
