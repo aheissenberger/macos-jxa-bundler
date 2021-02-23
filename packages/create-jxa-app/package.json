@@ -1,6 +1,6 @@
 {
   "name": "create-jxa-app",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "bin": {
     "create-jxa-app": "./dist/cli.js"
   },
