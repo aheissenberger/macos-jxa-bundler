@@ -1,6 +1,6 @@
 {
   "name": "cjxa-template",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "license": "bsd-2-clause",
   "description": "Template with Javascript for MacOS Javascript for Automation (JXA) Apps bundler.",
   "keywords": [

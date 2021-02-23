@@ -1,6 +1,6 @@
 {
   "name": "jxabundler",
-  "version": "1.0.2-alpha.0",
+  "version": "1.0.3-alpha.0",
   "main": "dist/cli.js",
   "source": "src/index.js",
   "bin": "dist/cli.js",
@@ -21,7 +21,7 @@
   "author": "Andreas Heissenberger <andreas@heissenberger.at>",
   "homepage": "https://github.com/aheissenberger/macos-jxa-bundler/jxabundler",
   "bugs": {
-  "url": "https://github.com/aheissenberger/macos-jxa-bundler/issues"
+    "url": "https://github.com/aheissenberger/macos-jxa-bundler/issues"
   },
   "engines": {
     "node": ">=10"
