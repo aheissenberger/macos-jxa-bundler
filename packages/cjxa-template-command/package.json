@@ -1,6 +1,6 @@
 {
   "name": "cjxa-template-command",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "license": "bsd-2-clause",
   "description": "Template for creating JXA command line scripts",
   "keywords": [
