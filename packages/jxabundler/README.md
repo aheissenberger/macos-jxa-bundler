@@ -29,9 +29,9 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/aheissenberger/macos-jxa-bundler/jxabundler">
+  <!-- <a href="https://github.com/aheissenberger/macos-jxa-bundler/jxabundler">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
+  </a> -->
 
   <h3 align="center">MacOS JXA Bundler </h3>
 
