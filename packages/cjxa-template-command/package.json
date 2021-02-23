@@ -1,8 +1,8 @@
 {
-  "name": "cjxa-template",
-  "version": "0.0.7",
+  "name": "cjxa-template-command",
+  "version": "0.0.0",
   "license": "bsd-2-clause",
-  "description": "Template with Javascript for MacOS Javascript for Automation (JXA) Apps bundler.",
+  "description": "Template for creating JXA command line scripts",
   "keywords": [
     "template",
     "cjxa-create-app",
@@ -10,11 +10,11 @@
     "javascript"
   ],
   "author": "Andreas Heissenberger <andreas@heissenberger.at>",
-  "homepage": "https://github.com/aheissenberger/macos-jxa-bundler/cjxa-template",
+  "homepage": "https://github.com/aheissenberger/macos-jxa-bundler/cjxa-template-command",
   "repository": {
     "type": "git",
     "url": "https://github.com/aheissenberger/macos-jxa-bundler.git",
-    "directory": "packages/cjxa-template"
+    "directory": "packages/cjxa-template-command"
   },
   "engines": {
     "node": ">=10"
@@ -22,6 +22,5 @@
   "files": [
     "template",
     "template.json"
-  ],
-  "gitHead": "81af8fc410816d73dc740d13ab95ffa4285b10d5"
+  ]
 }

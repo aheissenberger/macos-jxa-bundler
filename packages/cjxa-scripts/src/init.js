@@ -312,9 +312,9 @@ module.exports = function (
 
   // Install react and react-dom for backward compatibility with old CRA cli
   // which doesn't install react and react-dom along with react-scripts
-  if (!isReactInstalled(appPackage)) {
-    args = args.concat(['react', 'react-dom']);
-  }
+//   if (!isReactInstalled(appPackage)) {
+//     args = args.concat(['react', 'react-dom']);
+//   }
 
   // Install template dependencies, and react and react-dom if missing.
   if ((!isReactInstalled(appPackage) || templateName) && args.length > 1) {
@@ -368,7 +368,7 @@ module.exports = function (
   console.log(`Success! Created ${appName} at ${appPath}`);
   console.log('Inside that directory, you can run several commands:');
   console.log();
-  console.log(chalk.cyan(`  ${displayedCommand} dev`));
+  console.log(chalk.cyan(`  ${displayedCommand} start`));
   console.log('    Starts the development mode.');
   console.log();
   console.log(

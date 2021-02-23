@@ -166,7 +166,7 @@ async function jsOrTs(cwd, filename) {
 }
 
 async function getOutput({ cwd, output, pkgMain, pkgName }) {
-	let main = resolve(cwd, output || pkgMain || 'dist');
+	let main = resolve(cwd, output || pkgMain || 'build');
 	if (!main.match(/\.[a-z]+$/) || (await isDir(main))) {
 		main = resolve(main, `${removeScope(pkgName)}.js`);
 	}

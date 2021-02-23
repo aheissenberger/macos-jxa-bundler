@@ -53,9 +53,10 @@
 <p align="center">
   <strong>Guide → </strong>
   <a href="#setup">Setup</a> ✯
+  <a href="#create-jxa-app">Create JXA App</a> ✯
   <a href="#formats">Formats</a> ✯
-  <a href="#modern">Modern Mode</a> ✯
   <a href="#usage">Usage &amp; Configuration</a> ✯
+  <a href="#typescript">Typescript</a> ✯
   <a href="#options">All Options</a>
 </p>
 
@@ -134,28 +135,143 @@ const main = (files) => {
 
 compile the app by runing `npm run build`
 
-<!-- USAGE EXAMPLES -->
+3️⃣ **Run the App**
 
-## Usage
+Open folder `dist` and start the app `foo.app` with a double click.
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+## Create JXA App
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+The easier way to setup a project is to use the [Create JXA App](https://github.com/aheissenberger/macos-jxa-bundler/tree/main/packages/create-jxa-app):
 
-<!-- ROADMAP -->
+```sh
+npx create-jxa-app my-project
+```
+
+This will create a project folder `my-project`, jxabundler and an example app.
+
+The default template is for `MacOS Apps`. If you plan to develop `Command Line Scripts` you can use `npx create-jxa-app my-project --template command`
+
+Learn more [Create JXA App](https://github.com/aheissenberger/macos-jxa-bundler/tree/main/packages/create-jxa-app)
+
+## 💽 Output Formats <a name="formats"></a>
+
+JXA Bundler can create the following formats:
+* MacOS App - a real MacOS App with Drag & Drop Support
+* Command Line Script
+## 📦 Usage & Configuration <a name="usage"></a>
+
+JXA Bundler includes two commands - `build` (the default) and `watch`. Neither require any options, but you can tailor things to suit your needs a bit if you like.
+
+> ℹ️ JXA Bundler automatically determines which dependencies to inline into bundles based on your `package.json`.
+>
+> Read more about [How Microbundle decides which dependencies to bundle](https://github.com/developit/microbundle/wiki/How-Microbundle-decides-which-dependencies-to-bundle), including some example configurations.
+
+### `jxabundler` / `jxabundler build`
+
+Unless overridden via the command line, jxabundler uses the `source` property in your `package.json` to locate the input file, and the `main` property for the output:
+
+```js
+{
+  "source": "src/index.js",      // input
+  "main": "dist/my-library.js",  // output
+  "scripts": {
+    "build": "jxabundler"
+  }
+}
+```
+
+### `jxabundler watch`
+
+Acts just like `jxabundler build`, but watches your source files and rebuilds on any change.
+
+### Using with TypeScript <a name="installation"></a>
+
+Just point the input to a `.ts` file through either the cli or the `source` key in your `package.json` and you’re done.
+
+JXA Bundler will generally respect your TypeScript config defined in a `tsconfig.json` file with notable exceptions being the "[target](https://www.typescriptlang.org/tsconfig#target)" and "[module](https://www.typescriptlang.org/tsconfig#module)" settings. To ensure your TypeScript configuration matches the configuration that JXA Bundler uses internally it's strongly recommended that you set `"module": "ESNext"` and `"target": "ESNext"` in your `tsconfig.json`.
+
+### Specifying builds in `package.json`
+
+JXA Bundler uses the fields from your `package.json` to figure out where it should place each generated bundle:
+
+```
+{
+  "main": "dist/foo.js",            // CommonJS bundle
+  "source": "src/foo.js",
+}
+```
+
+### Mangling Properties
+
+To achieve the smallest possible bundle size, libraries often wish to rename internal object properties or class members to smaller names - transforming `this._internalIdValue` to `this._i`. JXA Bundler doesn't do this by default, however it can be enabled by creating a `mangle.json` file (or a `"mangle"` property in your package.json). Within that file, you can specify a regular expression pattern to control which properties should be mangled. For example: to mangle all property names beginning an underscore:
+
+```json
+{
+	"mangle": {
+		"regex": "^_"
+	}
+}
+```
+
+It's also possible to configure repeatable short names for each mangled property, so that every build of your library has the same output. **See the wiki for a [complete guide to property mangling in Microbundle](https://github.com/developit/microbundle/wiki/mangle.json).**
+
+### Defining build-time constants
+
+The `--define` option can be used to inject or replace build-time constants when bundling. In addition to injecting string or number constants, prefixing the define name with `@` allows injecting JavaScript expressions.
+
+| Build command | Source code | Output |
+|---------------|-------------|--------|
+`jxabundler --define VERSION=2` | `console.log(VERSION)` | `console.log(2)`
+`jxabundler --define API_KEY='abc123'` | `console.log(API_KEY)` | `console.log("abc123")`
+`jxabundler --define @assign=Object.assign` | `assign(a, b)` | `Object.assign(a, b)`
+### All CLI Options
+
+```
+  Usage
+    $ jxabundler <command> [options]
+
+  Available Commands
+    build    Build once and exit
+    watch    Rebuilds on any change
+
+  For more info, run any command with the `--help` flag
+    $ jxabundler build --help
+    $ jxabundler watch --help
+
+  Options
+    -i, --entry      Entry module(s)
+    -o, --output     Directory to place build files into (default build)
+    -t, --type       Specify your type (app, cmd)  (default cmd)
+    -w, --watch      Rebuilds on any change  (default false)
+    --define         Replace constants with hard-coded values
+    --alias          Map imports to different modules
+    --compress       Compress output using Terser
+    --strict         Enforce undefined global context and add "use strict"
+    --cwd            Use an alternative working directory  (default .)
+    --sourcemap      Generate source map
+    --tsconfig       Specify the path to a custom tsconfig.json
+    -v, --version    Displays current version
+    -h, --help       Displays this message
+
+  Examples
+    $ jxabundler build -i src/index.js -o build/MyApp.app -t app --no-sourcemap --compress
+    $ jxabundler watch -i src/index.js -o build/MyApp.app -t app
+
+```
+
 ### Typescript
 
 You can use typescript without any configuration. But you will have to deal with global functions (e.g. `Ref()`) which can be uses without beeing imported.
 
 ## Roadmap
 
-See the [open issues](https://github.com/aheissenberger/macos-jxa-bundler/issues) for a list of proposed features (and known issues).
+
 
 ### Built With
 
 - [rollup.js](https://rollupjs.org/guide/en/)
-- [microbundle]()
-- []()
+- [microbundle](https://github.com/developit/microbundle)
+- [osacompile](https://ss64.com/osx/osacompile.html)
 
 <!-- CONTRIBUTING -->
 
@@ -173,7 +289,7 @@ Contributions are what make the open source community such an amazing place to b
 
 ## License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Distributed under the bsd-2-clause License. See `LICENSE` for more information.
 
 <!-- CONTACT -->
 
@@ -185,11 +301,11 @@ Project Link: [https://github.com/aheissenberger/macos-jxa-bundler](https://gith
 
 <!-- ACKNOWLEDGEMENTS -->
 
-## Acknowledgements
+<!-- ## Acknowledgements
 
 - []()
 - []()
-- []()
+- []() -->
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->

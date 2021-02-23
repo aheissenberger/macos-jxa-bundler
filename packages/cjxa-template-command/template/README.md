@@ -1,4 +1,4 @@
-# Getting Started with Create JXA App
+# Getting Started with Create JXA Command Line Scripts
 
 This project was bootstrapped with [Create JXA App](https://github.com/aheissenberger/macos-jxa-bundler/create-jxa-app").
 
@@ -9,8 +9,6 @@ In the project directory, you can run:
 ### `npm start`
 
 Will watch your files in the `scr` directory and build a new version in the `build` directory on any change.
-
-**Note: if the final App is running, the compiler cannot replace the app with a new version!**
 
 ### `npm test`
 
@@ -32,16 +30,15 @@ You can learn more in the [Create React App documentation](https://github.com/ah
 
 To learn MacOS Javascript for Application , check out the [JXA documentation](https://gist.github.com/JMichaelTX/d29adaa18088572ce6d4).
 
-### Making a Command Line App
+### Making a MacOS App
 
-You need to change the parameter `-t app` to `-t cmd` of build and start command in `package.json`.
+You need to change the parameter `-t cmd` to `-t app` of build and start command in `package.json`.
 
-More Information [Create a Command Line Script](https://github.com/aheissenberger/macos-jxa-bundler/docs/create-jxa-command-line-script)
+More Information [Create a Command Line Script](https://github.com/aheissenberger/macos-jxa-bundler/docs/create-jxa-app)
 
 ### Typescript
 
 Is supported without out of the box without any extra configuration. Rename your source file to `.ts` and the typescript compiles will be used to transpile your source.
-
 
 ### Advanced Configuration
 

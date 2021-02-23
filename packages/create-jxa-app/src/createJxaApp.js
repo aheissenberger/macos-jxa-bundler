@@ -626,7 +626,7 @@ function shouldUseYarn() {
       console.error(
         kleur.red(
           'You are running Node %s.\n' +
-            'Create React App requires Node %s or higher. \n' +
+            'Create JXA App requires Node %s or higher. \n' +
             'Please update your version of Node.'
         ),
         process.version,
@@ -657,7 +657,7 @@ function shouldUseYarn() {
     }
   
     // TODO: there should be a single place that holds the dependencies
-    const dependencies = ['react', 'react-dom', 'cjxa-scripts'].sort();
+    const dependencies = ['jxabundler', 'cjxa-scripts'].sort();
     if (dependencies.includes(appName)) {
       console.error(
         kleur.red(

@@ -28,7 +28,7 @@ export default handler => {
 	prog
 		.version(version)
 		.option('--entry, -i', 'Entry module(s)')
-		.option('--output, -o', 'Directory to place build files into')
+		.option('--output, -o', 'Directory to place build files into','build')
 		.option(
 			'--type, -t',
 			`Specify your type (app, cmd)`,

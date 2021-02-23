@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 var sade = require('sade');
 var require$$5 = require('child_process');
 var validateProjectName = require('validate-npm-package-name');
@@ -42,7 +43,7 @@ var tmp__default = /*#__PURE__*/_interopDefaultLegacy(tmp);
 var url__default = /*#__PURE__*/_interopDefaultLegacy(url);
 
 var name = "create-jxa-app";
-var version = "0.0.10";
+var version = "0.0.11";
 
 var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
@@ -6609,7 +6610,7 @@ function checkNodeVersion(packageName) {
   }
 
   if (!semver__default['default'].satisfies(process.version, packageJson.engines.node)) {
-    console.error(kleur__default['default'].red('You are running Node %s.\n' + 'Create React App requires Node %s or higher. \n' + 'Please update your version of Node.'), process.version, packageJson.engines.node);
+    console.error(kleur__default['default'].red('You are running Node %s.\n' + 'Create JXA App requires Node %s or higher. \n' + 'Please update your version of Node.'), process.version, packageJson.engines.node);
     process.exit(1);
   }
 }
