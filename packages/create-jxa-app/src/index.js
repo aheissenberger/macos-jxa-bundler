@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { init } from './createJxaApp';
 
 var currentNodeVersion = process.versions.node;
