@@ -155,6 +155,16 @@ async function getInput({ entries, cwd, source, module }) {
 	return input;
 }
 
+async function jsOrTs(cwd, filename) {
+	const extension = (await isFile(resolve(cwd, filename + '.ts')))
+		? '.ts'
+		: (await isFile(resolve(cwd, filename + '.tsx')))
+		? '.tsx'
+		: '.js';
+
+	return resolve(cwd, `${filename}${extension}`);
+}
+
 async function getOutput({ cwd, output, pkgMain, pkgName }) {
 	let main = resolve(cwd, output || pkgMain || 'dist');
 	if (!main.match(/\.[a-z]+$/) || (await isDir(main))) {
