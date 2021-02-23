@@ -1,0 +1,29 @@
+{
+  "name": "cjxa-template",
+  "version": "0.0.0",
+  "license": "bsd-2-clause",
+  "description": "Template with Javascript for MacOS Javascript for Automation (JXA) Apps bundler.",
+  "keywords": [
+    "template",
+    "jxabundler",
+    "osx",
+    "macos",
+    "osascript",
+    "jxa",
+    "javascript"
+  ],
+  "author": "Andreas Heissenberger <andreas@heissenberger.at>",
+  "homepage": "https://github.com/aheissenberger/macos-jxa-bundler/cjxa-scripts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aheissenberger/macos-jxa-bundler.git",
+    "directory": "packages/cjxa-template"
+  },
+  "engines": {
+    "node": ">=10"
+  },
+  "files": [
+    "template",
+    "template.json"
+  ]
+}

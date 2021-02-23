@@ -1,0 +1,21 @@
+{
+  "name": "cjxa-scripts",
+  "version": "0.0.0",
+  "main": "dist/scripts.js",
+  "license": "bsd-2-clause",
+  "description": "Scripts for Javascript for MacOS Javascript for Automation (JXA) Apps bundler.",
+  "keywords": [
+    "jxabundler"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aheissenberger/macos-jxa-bundler.git",
+    "directory": "packages/cjxa-scripts"
+  },
+  "author": "Andreas Heissenberger <andreas@heissenberger.at>",
+  "homepage": "https://github.com/aheissenberger/macos-jxa-bundler/cjxa-scripts",
+  "url": "https://github.com/aheissenberger/macos-jxa-bundler/issues",
+  "engines": {
+    "node": ">=10"
+  }
+}

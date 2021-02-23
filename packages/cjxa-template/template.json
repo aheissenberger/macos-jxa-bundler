@@ -1,0 +1,11 @@
+{
+    "package": {
+      "dependencies": {
+        
+      },
+      "scripts": {
+        "dev": "jxabundler watch -t cmd",
+        "build": "jxabundler -t cmd"
+      }
+    }
+  }

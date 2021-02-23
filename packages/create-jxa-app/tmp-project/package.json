@@ -1,0 +1,9 @@
+{
+  "name": "tmp-project",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "cjxa-template-javascript": "file:../../cjxa-template-javascript",
+    "jxabundler": "1.0.2-alpha.0"
+  }
+}
