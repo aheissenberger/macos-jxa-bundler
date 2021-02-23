@@ -29,6 +29,6 @@
   "scripts": {
     "build": "microbundle -i src/init.js -o scripts/init.js -f cjs --target node",
     "dev": "microbundle watch -i src/init.js -o scripts/init.js -f cjs --target node",
-    "prepublishOnly": "yarn microbundle -i src/init.js -o scripts/init.js -f cjs --target node --compress --no-sourcemap"
+    "prepublishOnly": "yarn microbundle -i src/init.js -o scripts/init.js -f cjs --target node"
   }
 }
