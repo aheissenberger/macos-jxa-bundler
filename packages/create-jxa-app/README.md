@@ -17,10 +17,11 @@ npm start
 
 The compiled MacOs App is created in the `build` folder and can be started.
 
-<video style="width:100%" controls>
-  <source src="../../docs/resources/create-jxa-app.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
+<a href="https://github.com/aheissenberger/macos-jxa-bundler/blob/main/docs/resources/create-jxa-app.mp4?raw=true" target="video">
+    <img src="../../docs/resources/create-jxa-app.png" alt="Logo" width="640" height="360">
+  </a>
+
+
 
 ## Creating an App
 

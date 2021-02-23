@@ -38,11 +38,11 @@
   <p align="center">
     MacOS JavaScript for Automation (JXA) bundler. Creates MacOS Apps, Commandline Scripts. Uses rollup to inline libaries from NPM.
     <br />
-    <a href="https://github.com/aheissenberger/macos-jxa-bundler/jxabundler"><strong>Explore the docs »</strong></a>
+    <!-- <a href="https://github.com/aheissenberger/macos-jxa-bundler/jxabundler"><strong>Explore the docs »</strong></a>
+    <br /> -->
     <br />
-    <br />
-    <a href="https://github.com/aheissenberger/macos-jxa-bundler"/jxabundler>View Demo</a>
-    ·
+    <!-- <a href="https://github.com/aheissenberger/macos-jxa-bundler"/jxabundler>View Demo</a>
+    · -->
     <a href="https://github.com/aheissenberger/macos-jxa-bundler/issues">Report Bug</a>
     ·
     <a href="https://github.com/aheissenberger/macos-jxa-bundler/issues">Request Feature</a>
