@@ -6,4 +6,4 @@ If you don't specify a template (for example, `--template command`), this templa
 
 For more information, please refer to:
 
-- [Getting Started](https://github.com/aheissenberger/macos-jxa-bundler/docs/getting-started) – How to create a new app.
+- [Getting Started](https://github.com/aheissenberger/macos-jxa-bundler/packages/create-jxa-app) – How to create a new app.
