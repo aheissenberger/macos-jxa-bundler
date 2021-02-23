@@ -18,5 +18,17 @@
   "engines": {
     "node": ">=10"
   },
-  "gitHead": "81af8fc410816d73dc740d13ab95ffa4285b10d5"
+  "gitHead": "81af8fc410816d73dc740d13ab95ffa4285b10d5",
+  "dependencies": {
+    "cross-spawn": "^7.0.3",
+    "kleur": "^4.1.4"
+  },
+  "devDependencies": {
+    "microbundle": "^0.13.0"
+  },
+  "scripts": {
+    "build": "microbundle -i src/init.js -o scripts/init.js -f cjs --target node",
+    "dev": "microbundle watch -i src/init.js -o scripts/init.js -f cjs --target node",
+    "prepublishOnly": "yarn microbundle -i src/init.js -o scripts/init.js -f cjs --target node --compress --no-sourcemap"
+  }
 }

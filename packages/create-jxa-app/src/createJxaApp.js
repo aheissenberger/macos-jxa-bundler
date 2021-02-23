@@ -413,7 +413,7 @@ function shouldUseYarn() {
   }
   
   function getTemplateInstallPackage(template, originalDirectory) {
-    let templateToInstall = 'cra-template';
+    let templateToInstall = 'cjxa-template';
     if (template) {
       if (template.match(/^file:/)) {
         templateToInstall = `file:${path.resolve(
@@ -427,7 +427,7 @@ function shouldUseYarn() {
         // for tar.gz or alternative paths
         templateToInstall = template;
       } else {
-        // Add prefix 'cra-template-' to non-prefixed templates, leaving any
+        // Add prefix 'cjxa-template-' to non-prefixed templates, leaving any
         // @scope/ and @version intact.
         const packageMatch = template.match(/^(@[^/]+\/)?([^@]+)?(@.+)?$/);
         const scope = packageMatch[1] || '';
@@ -439,16 +439,16 @@ function shouldUseYarn() {
           templateName.startsWith(`${templateToInstall}-`)
         ) {
           // Covers:
-          // - cra-template
-          // - @SCOPE/cra-template
-          // - cra-template-NAME
-          // - @SCOPE/cra-template-NAME
+          // - cjxa-template
+          // - @SCOPE/cjxa-template
+          // - cjxa-template-NAME
+          // - @SCOPE/cjxa-template-NAME
           templateToInstall = `${scope}${templateName}${version}`;
         } else if (version && !scope && !templateName) {
           // Covers using @SCOPE only
           templateToInstall = `${version}/${templateToInstall}`;
         } else {
-          // Covers templates without the `cra-template` prefix:
+          // Covers templates without the `cjxa-template` prefix:
           // - NAME
           // - @SCOPE/NAME
           templateToInstall = `${scope}${templateToInstall}-${templateName}${version}`;
@@ -710,8 +710,8 @@ function shouldUseYarn() {
       process.exit(1);
     }
   
-    makeCaretRange(packageJson.dependencies, 'react');
-    makeCaretRange(packageJson.dependencies, 'react-dom');
+    makeCaretRange(packageJson.dependencies, 'jxabundler');
+    //makeCaretRange(packageJson.dependencies, 'react-dom');
   
     fs.writeFileSync(packagePath, JSON.stringify(packageJson, null, 2) + os.EOL);
   }
