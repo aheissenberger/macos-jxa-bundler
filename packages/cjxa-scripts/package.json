@@ -1,6 +1,6 @@
 {
   "name": "cjxa-scripts",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "main": "dist/scripts.js",
   "license": "bsd-2-clause",
   "description": "Scripts for Javascript for MacOS Javascript for Automation (JXA) Apps bundler.",
