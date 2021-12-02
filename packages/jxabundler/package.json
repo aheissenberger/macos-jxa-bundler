@@ -1,9 +1,9 @@
 {
   "name": "jxabundler",
   "version": "1.0.15",
-  "main": "dist/cli.js",
+  "main": "dist/cli.cjs",
   "source": "src/index.js",
-  "bin": "dist/cli.js",
+  "bin": "dist/cli.cjs",
   "license": "bsd-2-clause",
   "description": "MacOS Javascript for Automation (JXA) bundler. Creates MacOS Apps, Commandline Scripts. Allows to use libaries from NPM.",
   "keywords": [
@@ -39,16 +39,17 @@
     "rollup": "^2.60.2",
     "rollup-plugin-terser": "^7.0.2",
     "sade": "^1.7.4",
-    "tiny-glob": "^0.2.8",
+    "tiny-glob": "^0.2.9",
     "tslib": "^2.3.1",
     "typescript": "^4.2.3"
   },
   "scripts": {
-    "build": "microbundle --format cjs --target node src/cli.js",
+    "build": "microbundle --format cjs -i src/cli.js -o dist/cli.cjs --target node",
     "dev": "microbundle watch --format cjs --target node src/cli.js",
-    "prepublishOnly": "microbundle -i src/cli.js -o dist/cli.js -f cjs --target node --compress --no-sourcemap"
+    "prepublishOnly": "microbundle -i src/cli.js -o dist/cli.cjs -f cjs --target node --compress --no-sourcemap"
   },
   "devDependencies": {
+    "macos-version": "^6.0.0",
     "microbundle": "^0.14.2"
   },
   "gitHead": "eaa0d14f7cd765c826277f2255bdf08609ada059"

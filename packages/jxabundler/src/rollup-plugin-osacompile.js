@@ -4,7 +4,7 @@ import { dirname, basename } from 'path'
 
 import cp from "child_process"
 
-import macosVersion from "macos-version"
+//import macosVersion from "macos-version"
 
 const { execFile } = cp
 
@@ -60,7 +60,7 @@ async function compile(filePath, appDirectory) {
         console.error(e)
      }
     return new Promise((resolve, reject) => {
-        macosVersion.assertGreaterThanOrEqualTo("10.10");
+        //macosVersion.assertGreaterThanOrEqualTo("10.10");
 
         execFile(
             "/usr/bin/osacompile",
