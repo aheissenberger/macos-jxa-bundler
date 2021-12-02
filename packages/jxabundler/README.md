@@ -58,6 +58,7 @@
   <a href="#usage">Usage &amp; Configuration</a> ✯
   <a href="#typescript">Typescript</a> ✯
   <a href="#options">All Options</a>
+  <a href="#faq">FAQ & Errors</a>
 </p>
 
 <!-- ABOUT THE PROJECT -->
@@ -258,6 +259,11 @@ The `--define` option can be used to inject or replace build-time constants when
     $ jxabundler watch -i src/index.js -o build/MyApp.app -t app
 
 ```
+
+### FAQ
+
+* Error `Error [ERR_PACKAGE_PATH_NOT_EXPORTED]: Package subpath './package.json' is not defined by "exports" in /Users/ah/SVN-Checkouts/AH/awsExportTransactions/node_modules/tslib/package.json`
+  This is a problem with the package `tslib` you currently can only fix this with changing in `node_modules/tslib/package.json` in the section `"exports"` the entry `"./": "./"` to `"./*": "./*"`.
 
 ### Typescript
 
