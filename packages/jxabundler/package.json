@@ -1,6 +1,6 @@
 {
   "name": "jxabundler",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "main": "dist/cli.js",
   "source": "src/index.js",
   "bin": "dist/cli.js",
