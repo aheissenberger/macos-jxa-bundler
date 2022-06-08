@@ -31,7 +31,7 @@ export default handler => {
 		.option('--output, -o', 'Directory to place build files into','build')
 		.option(
 			'--type, -t',
-			`Specify your type (app, cmd)`,
+			`Specify your type (app, service, cmd)`,
 			'cmd'
 		)
 		.option('--watch, -w', 'Rebuilds on any change', false)

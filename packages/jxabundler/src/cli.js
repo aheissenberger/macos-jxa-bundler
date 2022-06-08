@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import main from './index';
 import prog from './prog';
 import { stdout } from './utils';

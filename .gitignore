@@ -1,2 +1,4 @@
 node_modules
 lerna-debug.log
+.parcel-cache
+packages/jxabundler/yarn-error.log

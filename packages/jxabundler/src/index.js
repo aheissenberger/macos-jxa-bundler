@@ -4,7 +4,8 @@ import camelCase from 'camelcase';
 import escapeStringRegexp from 'escape-string-regexp';
 import { blue } from 'kleur';
 import { map, series } from 'asyncro';
-import glob from 'tiny-glob/sync';
+//import glob from 'tiny-glob/sync';
+import fg from 'fast-glob';
 // import autoprefixer from 'autoprefixer';
 import { rollup, watch } from 'rollup';
 // import builtinModules from 'builtin-modules';
@@ -31,6 +32,7 @@ import { normalizeMinifyOptions } from './lib/terser';
 import { getConfigFromPkgJson, getName } from './lib/package-info';
 //import { shouldCssModules, cssModulesConfig } from './lib/css-modules';
 import osacompile from './rollup-plugin-osacompile'
+import automatorservice from './rollup-plugin-automatorservice'
 
 const WATCH_OPTS = {
 	exclude: 'node_modules/**',
@@ -149,7 +151,7 @@ async function getInput({ entries, cwd, source, module }) {
 				(await jsOrTs(cwd, 'index')) ||
 				module,
 		)
-		.map(file => glob(file))
+		.map(file => fg.sync(file))
 		.forEach(file => input.push(...file));
 
 	return input;
@@ -421,10 +423,10 @@ function createConfig(options, entry, format, writeMeta) {
 						tsconfigDefaults: {
 							compilerOptions: {
 								sourceMap: options.sourcemap,
-								declaration: true,
+								declaration: false,
 								allowJs: true,
-								emitDeclarationOnly: options.generateTypes && !useTypescript,
-								declarationDir: getDeclarationDir({ options, pkg }),
+								// emitDeclarationOnly: options.generateTypes && !useTypescript,
+								// declarationDir: getDeclarationDir({ options, pkg }),
 								jsx: 'preserve',
 								jsxFactory:
 									// TypeScript fails to resolve Fragments when jsxFactory
@@ -569,6 +571,10 @@ function createConfig(options, entry, format, writeMeta) {
 						},
 					}),
 					options.type === 'app' && osacompile({
+						//appName: options.name,
+						cwd: outputDir,
+					}),
+					options.type === 'service' && automatorservice({
 						//appName: options.name,
 						cwd: outputDir,
 					})

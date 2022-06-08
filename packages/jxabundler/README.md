@@ -158,6 +158,7 @@ Learn more [Create JXA App](https://github.com/aheissenberger/macos-jxa-bundler/
 
 JXA Bundler can create the following formats:
 * MacOS App - a real MacOS App with Drag & Drop Support
+* Automator Services - can be integrated in Menu, called with keyboard shortcuts
 * Command Line Script
 ## 📦 Usage & Configuration <a name="usage"></a>
 
@@ -242,7 +243,7 @@ The `--define` option can be used to inject or replace build-time constants when
   Options
     -i, --entry      Entry module(s)
     -o, --output     Directory to place build files into (default build)
-    -t, --type       Specify your type (app, cmd)  (default cmd)
+    -t, --type       Specify your type (app, service, cmd)  (default cmd)
     -w, --watch      Rebuilds on any change  (default false)
     --define         Replace constants with hard-coded values
     --alias          Map imports to different modules
@@ -271,7 +272,7 @@ You can use typescript without any configuration. But you will have to deal with
 
 ### Roadmap
 
-- [ ] add type MacOS services
+- [X] add type MacOS services
 
 ### Built With
 

@@ -1,3 +1,5 @@
 src/
 tests/
 dist/*.map
+.babelrc.js
+rollup.config.js

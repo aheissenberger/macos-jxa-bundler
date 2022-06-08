@@ -2,11 +2,10 @@ import { rmdir} from 'fs/promises';
 import {  existsSync } from 'fs';
 import { dirname, basename } from 'path'
 
-import cp from "child_process"
+import { execFile } from "child_process"
 
 //import macosVersion from "macos-version"
 
-const { execFile } = cp
 
 export default function osacompile(options = {}) {
 
