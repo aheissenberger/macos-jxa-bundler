@@ -24,11 +24,11 @@ import { isDir, isFile, stdout, isTruthy, removeScope } from './utils';
 import { getSizeInfo } from './lib/compressed-size';
 
 import { normalizeMinifyOptions } from './lib/terser';
-// import {
-// 	parseAliasArgument,
-// 	parseMappingArgument,
-// 	toReplacementExpression,
-// } from './lib/option-normalization';
+import {
+	parseAliasArgument,
+	parseMappingArgument,
+	toReplacementExpression,
+} from './lib/option-normalization';
 import { getConfigFromPkgJson, getName } from './lib/package-info';
 //import { shouldCssModules, cssModulesConfig } from './lib/css-modules';
 import osacompile from './rollup-plugin-osacompile'
@@ -161,8 +161,8 @@ async function jsOrTs(cwd, filename) {
 	const extension = (await isFile(resolve(cwd, filename + '.ts')))
 		? '.ts'
 		: (await isFile(resolve(cwd, filename + '.tsx')))
-		? '.tsx'
-		: '.js';
+			? '.tsx'
+			: '.js';
 
 	return resolve(cwd, `${filename}${extension}`);
 }
@@ -412,6 +412,19 @@ function createConfig(options, entry, format, writeMeta) {
 							map: null,
 						}),
 					},
+					{
+						// We execute `--define xx=yy`
+						transform: code => {
+							let result = code;
+							for (var [key, value] of Object.entries(defines)) {
+								result = result.replace(key, value);
+							}
+							return {
+								code: result,
+								map: null
+							}
+						},
+					},
 					(useTypescript || emitDeclaration) &&
 					typescript({
 						typescript: require(resolveFrom.silent(
@@ -453,6 +466,11 @@ function createConfig(options, entry, format, writeMeta) {
 						compact: false,
 						configFile: false,
 						include: 'node_modules/**',
+						presets: [
+							[
+								"@babel/preset-env",
+							],
+						],
 						plugins: [
 							[
 								require.resolve('babel-plugin-transform-replace-expressions'),
@@ -525,39 +543,23 @@ function createConfig(options, entry, format, writeMeta) {
 						// Only ESM environments necessitate globalThis, and UMD bundles can't be properly loaded as ESM.
 						// So we remove the globalThis check, replacing it with `this||self` to match Rollup 1's output:
 						renderChunk(code, chunk, opts) {
-							
-								// remove "exports.run=" from "exports.run=function run(n)"
-								code = code.replace(
-									/,*\s*exports\.(run|openDocuments)\s*=\s*function\s*(run|openDocuments)\s*\({0,1}/g,
-									'function $2(',
-								);
-								// remove "exports.run=run"
-								code = code.replace(
-									/exports\.(run|openDocuments)\s*=\s*(run|openDocuments)\s*[;]{0,1}/g,
-									'',
-								);
 
-								if (options.type === 'cmd') {
-									code = "#!/usr/bin/env osascript -l JavaScript\n"+code
-								}
+							// remove "exports.run=" from "exports.run=function run(n)"
+							code = code.replace(
+								/,*\s*exports\.(run|openDocuments)\s*=\s*function\s*(run|openDocuments)\s*\({0,1}/g,
+								'function $2(',
+							);
+							// remove "exports.run=run"
+							code = code.replace(
+								/exports\.(run|openDocuments)\s*=\s*(run|openDocuments)\s*[;]{0,1}/g,
+								'',
+							);
 
-								return { code, map: null };
-							
-							/*
-							if (opts.format === 'umd') {
-								// minified:
-								code = code.replace(
-									/([a-zA-Z$_]+)="undefined"!=typeof globalThis\?globalThis:(\1\|\|self)/,
-									'$2',
-								);
-								// unminified:
-								code = code.replace(
-									/(global *= *)typeof +globalThis *!== *['"]undefined['"] *\? *globalThis *: *(global *\|\| *self)/,
-									'$1$2',
-								);
-								return { code, map: null };
+							if (options.type === 'cmd') {
+								code = "#!/usr/bin/env osascript -l JavaScript\n" + code
 							}
-							*/
+
+							return { code, map: null };
 						},
 						// Grab size info before writing files to disk:
 						writeBundle(_, bundle) {

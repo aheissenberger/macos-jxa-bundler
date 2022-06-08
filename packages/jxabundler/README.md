@@ -225,7 +225,7 @@ The `--define` option can be used to inject or replace build-time constants when
 |---------------|-------------|--------|
 `jxabundler --define VERSION=2` | `console.log(VERSION)` | `console.log(2)`
 `jxabundler --define API_KEY='abc123'` | `console.log(API_KEY)` | `console.log("abc123")`
-`jxabundler --define @assign=Object.assign` | `assign(a, b)` | `Object.assign(a, b)`
+`jxabundler --define assign=Object.assign` | `assign(a, b)` | `Object.assign(a, b)`
 ### All CLI Options
 
 ```
@@ -254,6 +254,14 @@ The `--define` option can be used to inject or replace build-time constants when
     --tsconfig       Specify the path to a custom tsconfig.json
     -v, --version    Displays current version
     -h, --help       Displays this message
+
+    nur bei Automator Type (-t service):
+    --NSApplicationIdentifier <MacOS App ID>    e.g. `com.apple.Safari` for Safari - will restrict this service to this app (default: `all Programs`)
+    --NSReturnTypes <type>                      e.g. `public.utf8-plain-text` - result replaces selected text (default: off)
+    --NSSendTypes <type>                        receives this type of content (default: none):
+                                                  Text         `public.utf8-plain-text`
+                                                  Webcontent   `com.apple.webarchive`
+    --NSIconName <name>                         e.g. `NSTouchBarAdd`
 
   Examples
     $ jxabundler build -i src/index.js -o build/MyApp.app -t app --no-sourcemap --compress
