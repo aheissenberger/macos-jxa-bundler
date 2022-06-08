@@ -52,11 +52,11 @@
   "scripts": {
     "build": "yarn rollup -c",
     "dev": "yarn rollup -c --watch",
-    "prepublishOnly": "microbundle -i src/cli.js -o dist/cli.js -f cjs --target node --compress --no-sourcemap"
+    "prepublishOnly": "yarn rollup -c"
   },
   "devDependencies": {
     "@rollup/plugin-url": "^7.0.0",
     "macos-version": "^6.0.0"
   },
-  "gitHead": "eaa0d14f7cd765c826277f2255bdf08609ada059"
+  "gitHead": "cc1dd4a2b5d8e81c4ea094e98b406b29330a2730"
 }
